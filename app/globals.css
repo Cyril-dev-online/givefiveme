@@ -24,3 +24,53 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* =========================
+   GiveMeFive — Mapbox theme
+   ========================= */
+
+.gmf-map .mapboxgl-ctrl-group {
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+}
+
+.gmf-map .mapboxgl-ctrl-group button {
+  background: transparent;
+  width: 36px;
+  height: 36px;
+}
+
+.gmf-map .mapboxgl-ctrl-group button span {
+  filter: invert(1) opacity(0.85);
+}
+
+.gmf-map .mapboxgl-ctrl-top-right {
+  top: 16px;
+  right: 16px;
+}
+
+/* Popup */
+.gmf-map .mapboxgl-popup-content {
+  background: transparent;
+  box-shadow: none;
+}
+
+.gmf-map .mapboxgl-popup-tip {
+  border-top-color: rgba(0, 0, 0, 0.9);
+  opacity: 0.95;
+}
+
+/* Canvas clean */
+.gmf-map .mapboxgl-canvas {
+  outline: none;
+}
+
+/* Attribution (optionnel : discret) */
+.gmf-map .mapboxgl-ctrl-attrib {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+}

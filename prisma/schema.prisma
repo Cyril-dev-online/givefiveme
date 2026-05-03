@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Order {
+  id             String   @id @default(cuid())
+  stripeId       String   @unique
+  amount         Float
+  country        String
+  latitude       Float?
+  longitude      Float?
+  isFirstCountry Boolean  @default(false)
+
+  impactType     String?
+  impactData     Json?
+
+  createdAt      DateTime @default(now())
+}
+
+model Visit {
+  id        String   @id @default(cuid())
+  country   String?
+  city      String?
+  latitude  Float?
+  longitude Float?
+  createdAt DateTime @default(now())
+}
+
+model AutoTweet {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  type      String
+  text      String
+  createdAt DateTime @default(now())
+}
+
+model ViralMoment {
+  id          String   @id @default(cuid())
+  orderId      String
+  type         String
+  score        Int
+  country      String
+  opponent     String?
+  gap          Int?
+  rank         Int?
+  reason       String
+  dedupeKey    String   @unique
+  payload      Json
+  notifiedAt   DateTime?
+  createdAt    DateTime @default(now())
+  filmedAt     DateTime?
+
+  @@index([createdAt])
+  @@index([type, country])
+}
